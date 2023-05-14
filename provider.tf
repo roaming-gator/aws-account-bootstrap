@@ -9,15 +9,15 @@ terraform {
     tfe = {
       version = "~> 0.44.0"
     }
+
   }
 }
 
 provider "aws" {
-  region = "us-east-1"
+  region = var.aws_region
 }
 
 provider "tfe" {
   token        = var.tfc_token
   organization = var.tfc_organization
-  version      = "~> 0.44.0"
 }
