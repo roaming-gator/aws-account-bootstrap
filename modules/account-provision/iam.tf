@@ -40,3 +40,10 @@ resource "aws_iam_role" "tfc_automation" {
     ]
   })
 }
+
+# give full admin access to the tfc automation role
+resource "aws_iam_role_policy_attachment" "tfc_automation_admin" {
+  provider   = aws.new-account
+  role       = aws_iam_role.tfc_automation.name
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+}
